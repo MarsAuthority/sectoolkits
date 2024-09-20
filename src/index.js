@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Helmet } from 'react-helmet';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <Helmet>
+      <title>安全工具箱 | SecToolKit</title>
+      <meta name="description" content="安全工具箱 SecToolKit" />
+    </Helmet>
   </React.StrictMode>
 );
 
