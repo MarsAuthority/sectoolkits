@@ -19,7 +19,7 @@ const Content_02 = ({ form }) => {
     const [code, setCode] = useState('');
     const handleGenerateCode = () => {
         const newCode = `
-find . -regextype posix-egrep -regex ".*\\.(yml|yaml|ini|conf|cnf|xml|cfg|properties|sql|log|sh|py|ts|tsx|md)" -type f -print0 | xargs -0 egrep -Hi "\\b(passwd|password)\\s*[:=]\\s*[\\"']?\\w+[\\"']?\\b" | sort -u
+find . -regextype posix-egrep -regex ".*\\.(yml|yaml|ini|conf|cnf|xml|cfg|properties|sql|log|sh|py|ts|tsx|md)" -type f -print0 | xargs -0 egrep -Hi "\\b(passwd|password|pwd|pass)\\s*[:=]\\s*[\\"']?\\w+[\\"']?\\b" | sort -u
         `;
         setCode(newCode);
     };
