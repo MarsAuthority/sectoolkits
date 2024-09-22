@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "Caption": "High entropy string",
+        "Example": "'b6SxM4UwRm1dBqTG4zIVU6rcBy1QhnfQKmSZOnmR6fS7ZvuCxf1C1uQFNI9CVWzH'",
+        "Pattern": "('[^'\\s]{12,64}'|\"[^\"]{12,64}\")"
+    },
+    {
+        "id": 2,
+        "Caption": "Potential credential in file",
+        "Example": "'credential': 'foobar'",
+        "Pattern": "['\"]?(credential|password|pass|pwd|secret|token|secretid|secretkey)[s]?['\"]?[ \\t]*[:=][ \\t]*(['\"][^'\"]{3,}['\"]|[0-9a-z\\-_@#!%\\^?*&$~]{3,})"
+    },
+    {
+        "id": 3,
+        "Caption": "Potential credential in xml",
+        "Example": "<password>foobar</password>",
+        "Pattern": "(<[^(><.)]?(credential|password|pass|pwd|secret|token|secretid|secretkey)[^(><.)]?>[^(><.)]+</[^(><.)]?(password)[^(><.)]?>)"
+    },
+    {
+        "id": 4,
+        "Caption": "Potential insecure db connection string",
+        "Example": "mysql://joeblow:mypassword@foo.bar.baz/",
+        "Pattern": "(mysql|oracle|odbc|jdbc|postgresql|mongodb|mongo|couchbase)://\\w{3,}:\\w{3,}(@[^/]{3,}/)"
+    },
+    {
+        "id": 5,
+        "Caption": "Access Key ID",
+        "Example": "AKIAIOSFODNN7EXAMPLE",
+        "Pattern": "(?=.*[A-Z])(?=.*[0-9])A(AG|CC|GP|ID|IP|KI|NP|NV|PK|RO|SC|SI)A[A-Z0-9]{16}"
+    },
+    {
+        "id": 6,
+        "Caption": "Secret Access Key",
+        "Example": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "Pattern": "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9\\+\\/]{40}"
+    }
+]
