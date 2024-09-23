@@ -26,14 +26,10 @@ const Content_02 = ({ form }) => {
         const Ext = values.Extensions;
         const Rules = values.Rules || [];
         const extractedRules = Rules.map(index => data[index].Pattern);
-        let newCode = "";
-        extractedRules.forEach(item => {
-            item = item.replaceAll('"','\\"')
-            newCode += `
-find {Directory} -regextype posix-egrep -regex ".*\\.({Ext})" -type f -print0 | xargs -0 egrep -Hi "`+item+`" | sort -u
-        `;
-        });
-        newCode = newCode.replaceAll("{Directory}",Directory).replaceAll("{Ext}",Ext);
+        let newCode = `find {Directory} -regextype posix-egrep -regex ".*\\.({Ext})" -type f -print0 | xargs -0 egrep -Hi "{Regexp}" | sort -u`;
+        let Regexp = '';
+        Regexp = extractedRules.map(item => item.replaceAll('"', '\\"')).join('|');
+        newCode = newCode.replaceAll("{Directory}",Directory).replaceAll("{Ext}",Ext).replaceAll("{Regexp}",Regexp);
         setCode(newCode);
     };
     const options = data.map(item => item.Caption);

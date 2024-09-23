@@ -3,7 +3,7 @@
         "id": 1,
         "Caption": "High entropy string",
         "Example": "'b6SxM4UwRm1dBqTG4zIVU6rcBy1QhnfQKmSZOnmR6fS7ZvuCxf1C1uQFNI9CVWzH'",
-        "Pattern": "('[^'\\s]{12,64}'|\"[^\"]{12,64}\")"
+        "Pattern": "('[A-Za-z0-9!@#$%^&*()_+=-]{16,64}'|\"[A-Za-z0-9!@#$%^&*()_+=-]{16,64}\")"
     },
     {
         "id": 2,
