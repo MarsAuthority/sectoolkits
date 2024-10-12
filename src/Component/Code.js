@@ -22,7 +22,7 @@ const CodeDisplay = ({ codeString }) => {
                     </Button>
                     </CopyToClipboard>
                 </div>
-                <SyntaxHighlighter language="bash">
+                <SyntaxHighlighter style={solarizedlight}>
                 {codeString}
                 </SyntaxHighlighter>
             </Card>
